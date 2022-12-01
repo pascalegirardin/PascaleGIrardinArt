@@ -58,7 +58,7 @@ function ProjectsPage ({pageContext, location}) {
         useEffect(() => { fetchProjects() }, []); 
 
     const fetchCurrent = () => {
-        fetch( "http://admin.pascalegirardin.art/wp-json/wp/v2/categories" )
+        fetch( "https://admin.pascalegirardin.art/wp-json/wp/v2/categories" )
         .then( (response) => response.json() )
         .then( (data) => {
             let x = [] 
@@ -78,7 +78,7 @@ function ProjectsPage ({pageContext, location}) {
         useEffect(() => { fetchCurrent() }, [hash])
 
     const fetchProjetMenu = () => {
-        fetch( "http://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/" )
+        fetch( "https://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/" )
         .then( (response) => response.json() )
         .then( (data) => {
             let x
