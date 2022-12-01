@@ -7,6 +7,7 @@ import "./src/css/normalize.css"
 
 // custom CSS styles
 import "./src/css/style.css"
+//import "./src/css/font.css"
 
 import React from 'react'
 import { GlobalContextProvider } from './src/context/GlobalContext'
