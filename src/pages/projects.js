@@ -9,10 +9,23 @@ function ProjectsPage ({pageContext, location}) {
     let [projectsToShow, setProjectsToShow] = useState(null)
     let [current, setCurrent] = useState(null)
     
-    let [hash, setHash] = useState(() => window.location.hash.substring(1));
-    window.onhashchange = () => {
-        setHash(window.location.hash.substring(1))
+    const isBrowser = () => typeof window !== "undefined"
+    const findHash = () => {
+        let x
+        if (isBrowser()) {
+        const hash = window.location.hash
+        x = window.location.hash.substring(1)
+        }
+        return x
     }
+    let [hash, setHash] = useState(() => findHash());
+
+    if (isBrowser()) {
+        window.onhashchange = () => {
+            setHash(window.location.hash.substring(1))
+        }
+    }
+
     
     let [projetMenu, setProjetMenu] = useState(null)
 

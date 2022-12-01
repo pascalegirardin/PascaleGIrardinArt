@@ -7,11 +7,23 @@ import useFetch from "../components/Hooks/useFetch"
 
 function PageTemplate ({pageContext, location}){
 
-  const [hash, setHash] = useState(() => {
-    return window.location.hash === ''? 0 : window.location.hash.substring(1)
-  });
-  window.onhashchange = () => {
-    setHash(window.location.hash.substring(1))
+  const isBrowser = () => typeof window !== "undefined"
+
+  const findHash = () => {
+    let x
+    if (isBrowser()) {
+      const hash = window.location.hash
+      x = window.location.hash === ''? 0 : window.location.hash.substring(1)
+    }
+    return x
+  }
+
+  const [hash, setHash] = useState(() => findHash());
+
+  if (isBrowser()) {
+    window.onhashchange = () => {
+      setHash(window.location.hash.substring(1))
+    }
   }
 
   const [ wordpressPage ] = useFetch(`pages/${pageContext.id}`)
