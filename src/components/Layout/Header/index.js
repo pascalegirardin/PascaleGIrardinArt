@@ -13,7 +13,7 @@ function Header ({pageContext}){
 
     const fetchHeaderMenu = () => {
         if(lang !== undefined) {
-            fetch( "http://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/" )
+            fetch( "https://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/" )
             .then( (response) => response.json() )
             .then( (data) => {
                 let x

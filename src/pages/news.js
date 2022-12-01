@@ -9,7 +9,7 @@ function NewsPage ({pageContext}) {
 
     let [posts, setPosts] = useState(null)
     const fetchPosts = () => {
-        fetch( "http://admin.pascalegirardin.art/wp-json/wp/v2/posts" )
+        fetch( "https://admin.pascalegirardin.art/wp-json/wp/v2/posts" )
         .then( (response) => response.json() )
         .then( (data) => {
             let x = [] 

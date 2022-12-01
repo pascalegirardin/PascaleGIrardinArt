@@ -4,7 +4,7 @@ const useFetch = (url) => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch(`http://admin.pascalegirardin.art/wp-json/wp/v2/${url}`)
+        fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/${url}`)
             .then((res) => res.json())
             .then((data) => setData(data));
     }, [url]);

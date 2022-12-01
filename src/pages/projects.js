@@ -41,7 +41,7 @@ function ProjectsPage ({pageContext, location}) {
     }]
     
     const fetchProjects = () => {
-        fetch( "http://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1" )
+        fetch( "https://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1" )
         .then( (response) => response.json() )
         .then( (data) => {
             let x = [] 

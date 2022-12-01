@@ -11,7 +11,7 @@ function ProjectTemplate ({pageContext, location}){                             
     const [featured_media , setFeatured_media] = useState(null)
 
     function fetchPage(){
-        fetch(`http://admin.pascalegirardin.art/wp-json/wp/v2/projects/${pageContext.id}`)
+        fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/projects/${pageContext.id}`)
         .then((response) => response.json())
         .then(data => {                                                                     //console.log(data)
             setWordpressPage(data); 
@@ -23,7 +23,7 @@ function ProjectTemplate ({pageContext, location}){                             
 
     function fetchImage(){
         if(wordpressPage !== null) {
-            fetch(`http://admin.pascalegirardin.art/wp-json/wp/v2/media/${wordpressPage.featured_media}`)
+            fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/media/${wordpressPage.featured_media}`)
             .then((response) => response.json())
             .then(data => {
                 console.log('--------------')

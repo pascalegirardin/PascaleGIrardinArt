@@ -37,7 +37,7 @@ function Menu ({headerMenu}){
 
     // function that removes 'http://admin.pascalegirardin.art' from the url
     const removeUrl = (url) => {
-        let newUrl = url.replace('http://admin.pascalegirardin.art', '')
+        let newUrl = url.replace('https://admin.pascalegirardin.art', '')
         return newUrl
     }
 

@@ -12,11 +12,11 @@ function IndexPage ({pageContext}) {
     let posts, projects
     
     const fetchBoth = () => {
-        fetch( "http://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1" )
+        fetch( "https://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1" )
         .then( (response) => response.json() )
         .then( (data) => {
             projects = data;                                                                    // console.log(`PROJECTS${data}`)
-            return fetch("http://admin.pascalegirardin.art/wp-json/wp/v2/posts")
+            return fetch("https://admin.pascalegirardin.art/wp-json/wp/v2/posts")
         })
         .then( (response) => response.json() )
         .then((data) => {
