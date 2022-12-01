@@ -1,7 +1,7 @@
 import React , { useEffect, useState } from "react"
 import { withIntl } from '../i18n'
 import PageContent from "../components/PageContent/PageContent";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import ProjectThumb from "../components/SingleProject/ProjectThumb";
 import ProjectHeader from "../components/SingleProject/ProjectHeader";
 import ProjectThumbImage from "../components/SingleProject/ProjectthumbImage";

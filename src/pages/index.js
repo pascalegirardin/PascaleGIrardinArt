@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import { withIntl } from '../i18n'
 import PostsToShow from '../components/IndexPage/PostToShow';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 function IndexPage ({pageContext}) {
 

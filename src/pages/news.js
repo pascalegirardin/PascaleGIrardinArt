@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { withIntl } from '../i18n'
 import NewsHeading from '../components/NewsPage/NewsHeading';
 import NewsItem from '../components/NewsPage/NewsItem';
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
 function NewsPage ({pageContext}) {
 

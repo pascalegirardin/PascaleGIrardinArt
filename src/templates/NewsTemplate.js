@@ -1,6 +1,6 @@
 import React from "react"
 import { withIntl } from '../i18n' 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import useFetch from "../components/Hooks/useFetch"
 
 const NewsTemplate = ( {pageContext} ) => {
