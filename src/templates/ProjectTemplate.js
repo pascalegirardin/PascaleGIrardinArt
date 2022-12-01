@@ -4,7 +4,7 @@ import PageContent from "../components/PageContent/PageContent";
 import Layout from "../components/Layout";
 import ProjectThumb from "../components/SingleProject/ProjectThumb";
 import ProjectHeader from "../components/SingleProject/ProjectHeader";
-import ProjectThumbImage from "../components/SingleProject/ProjectthumbImage";
+import ProjectThumbImage from "../components/SingleProject/ProjectThumbImage";
 
 function ProjectTemplate ({pageContext, location}){                                         //console.log(pageContext)
     const [ wordpressPage, setWordpressPage] = useState(null)
