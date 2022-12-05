@@ -3,11 +3,43 @@ import Logotype from "../Logotype";
 import FooterRow from "./FooterRow";
 import cmaqSrc from './images/CMAQ _horiz_noir.png'
 import csmSrc from './images/csm_Logo_CALQ_noir_725x300_373aca8cfe_2.png'
+import useWindowDimensions from "../../Hooks/useWindowDimension";
+
 
 function Footer ({pageContext}) {
 
+    const { width } = useWindowDimensions();
+    const [topLogos, setTopLogos] = useState(false);
+    const [bottomLogos, setBottomLogos] = useState(false);
+
+    function handleResize() {
+        console.log(width)
+        if (width < 928) {
+            setBottomLogos('block');
+            setTopLogos('none');
+        } else {
+            setBottomLogos('none');
+            setTopLogos('block');
+        }
+    }
+    useEffect(() => { handleResize() }, [width]);
+
+    function Sponsor({visible}) {
+        return (
+            <div style={{marginLeft: 'auto', display:visible}} >
+                <a href="https://www.metiersdart.ca/" target='blank'>
+                    <img src={cmaqSrc} style={{height : '3rem'}}  alt='cmaq_logo' />
+                </a>
+                <a href="https://www.calq.gouv.qc.ca/" target='blank'>
+                    <img src={csmSrc} style={{height : '3rem'}}  alt='calq_logo' />
+                </a>
+            </div>
+        )
+    }
+
     const lang = pageContext.locale
     let [footerMenu, setFooterMenu] = useState(null)
+
 
     const fetchFooterMenu = () => {
         if(lang !== undefined) {
@@ -32,14 +64,7 @@ function Footer ({pageContext}) {
             <div className="footer__logotype">
                 <div style={{display: 'flex', alignItems:'center'}}>
                     <Logotype parent='footer' />
-                    <div style={{marginLeft: 'auto'}}>
-                        <a href="https://www.metiersdart.ca/" target='blank'>
-                            <img src={cmaqSrc} style={{height : '3rem'}}  alt='cmaq_logo' />
-                        </a>
-                        <a href="https://www.calq.gouv.qc.ca/" target='blank'>
-                            <img src={csmSrc} style={{height : '3rem'}}  alt='calq_logo' />
-                        </a>
-                    </div>
+                    <Sponsor visible={topLogos} />
                 </div>
             </div>
             {
@@ -48,6 +73,9 @@ function Footer ({pageContext}) {
                     <FooterRow obj={element} key={element.url}/> 
                 )
             }
+            <div style={{marginLeft:'-1rem'}}>
+                <Sponsor visible={bottomLogos} />
+            </div>
         </footer>
     )
 }
