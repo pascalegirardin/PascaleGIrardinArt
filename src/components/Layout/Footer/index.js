@@ -78,7 +78,7 @@ function Footer ({pageContext}) {
             }
             <div style={{marginLeft:'-1rem'}}>
             {
-                        width &&
+                width &&
                 <Sponsor visible={bottomLogos} />
             }
             </div>
