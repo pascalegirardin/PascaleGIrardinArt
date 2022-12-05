@@ -13,7 +13,7 @@ function Footer ({pageContext}) {
     const [bottomLogos, setBottomLogos] = useState(false);
 
     function handleResize() {
-        console.log(width)
+        //console.log(width)
         if (width < 928) {
             setBottomLogos('block');
             setTopLogos('none');
@@ -64,7 +64,10 @@ function Footer ({pageContext}) {
             <div className="footer__logotype">
                 <div style={{display: 'flex', alignItems:'center'}}>
                     <Logotype parent='footer' />
-                    <Sponsor visible={topLogos} />
+                    {
+                        width &&
+                        <Sponsor visible={topLogos} />
+                    }
                 </div>
             </div>
             {
@@ -74,7 +77,10 @@ function Footer ({pageContext}) {
                 )
             }
             <div style={{marginLeft:'-1rem'}}>
+            {
+                        width &&
                 <Sponsor visible={bottomLogos} />
+            }
             </div>
         </footer>
     )

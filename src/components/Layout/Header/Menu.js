@@ -33,7 +33,7 @@ function Menu ({headerMenu}){
         },
     }
 
-    console.log(headerMenu)
+    //console.log(headerMenu)
 
     // function that removes 'http://admin.pascalegirardin.art' from the url
     const removeUrl = (url) => {
