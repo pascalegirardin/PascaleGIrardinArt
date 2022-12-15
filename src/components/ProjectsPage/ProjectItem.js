@@ -1,10 +1,15 @@
 import React from "react"
+import {withIntl} from '../../i18n'
 
-function ProjectItem({element}){
+function ProjectItem({element, pageContext}){
+
+    let url = element.link.split('art/')[1]
+
+    let realUrl = url.split('project/')[0] + url.split('project/')[1]
 
     return (
         <div className="projects__item" >
-            <a href={`/${element.slug}`}>
+            <a href={`/${realUrl}`}>
                 <div className="project-header project-header--none">
                     <h2 className="project-header__title">{element.title.rendered}</h2>
                     <ul className="project-header__detail">
@@ -24,4 +29,4 @@ function ProjectItem({element}){
         </div> 
     )
 }
-export default ProjectItem
+export default withIntl(ProjectItem)
