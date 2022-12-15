@@ -78,7 +78,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
 
-    axios.get(`http://admin.pascalegirardin.art/wp-json/wp/v2/pages`).then(result => {
+    axios.get(`https://admin.pascalegirardin.art/wp-json/wp/v2/pages`).then(result => {
 
       if (result.errors) {
         console.log(result.errors)
@@ -103,7 +103,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    .then(() => { axios.get(`http://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1`).then(result => {
+    .then(() => { axios.get(`https://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1`).then(result => {
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
@@ -129,7 +129,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-      .then(() => { axios.get(`http://admin.pascalegirardin.art/wp-json/wp/v2/posts`)
+      .then(() => { axios.get(`https://admin.pascalegirardin.art/wp-json/wp/v2/posts`)
         .then(result => {
           if (result.errors) {
             console.log(result.errors)

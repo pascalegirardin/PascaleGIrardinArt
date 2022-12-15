@@ -104,12 +104,13 @@ function ProjectsPage ({pageContext, location}) {
                 ? x.push(element) 
                 : void(0)
             })
+            console.log(x)
             return x.length < 1 ? setProjectsToShow(emptyProject) : setProjectsToShow(x) ;
         }
     }
         useEffect(()=> {listOfProjects ()}, [projects, current] )
 
-    return projectsToShow === null ? <></> : (
+    return projectsToShow === null || projetMenu === null ? <></> : (
         <Layout title='Pascale Girardin' pageContext={pageContext}>
             <div className="projects">
                 <h2 className="projects__heading">
@@ -137,7 +138,7 @@ function ProjectsPage ({pageContext, location}) {
                 </h2>
                 <div className="projects__list">
                     {
-                        projectsToShow && projectsToShow.map( element => <ProjectItem element={element} key={element.date} /> )
+                        projectsToShow && projectsToShow.map( element => <ProjectItem element={element} key={element.date} pageContext={pageContext} /> )
                     }
                 </div>
             </div>

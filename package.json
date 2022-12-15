@@ -39,7 +39,7 @@
     "gatsby-plugin-sharp": "^4.0.0",
     "gatsby-plugin-styled-components": "^5.24.0",
     "gatsby-source-filesystem": "^4.0.0",
-    "gatsby-source-wordpress": "^6.0.0",
+    "gatsby-source-wordpress": "^6.25.2",
     "gatsby-transformer-sharp": "^4.0.0",
     "html-react-parser": "^1.1.1",
     "lodash": "^4.17.20",
