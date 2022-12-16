@@ -8,11 +8,16 @@ exports.sourceNodes = async ({ actions }) => {
     const { createNode } = actions;
 
     const api = {
-        projects : `http://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1` ,
-        posts : `http://admin.pascalegirardin.art/wp-json/wp/v2/posts` ,
-        pages : `http://admin.pascalegirardin.art/wp-json/wp/v2/pages` ,
-        categories : `http://admin.pascalegirardin.art/wp-json/wp/v2/categories` ,
-        menus : `http://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/`,
+        projects : `https://admin.pascalegirardin.art/wp-json/wp/v2/projects?per_page=100&page=1` ,
+        posts : `https://admin.pascalegirardin.art/wp-json/wp/v2/posts` ,
+        pages : `https://admin.pascalegirardin.art/wp-json/wp/v2/pages` ,
+        categories : `https://admin.pascalegirardin.art/wp-json/wp/v2/categories` ,
+        menus : `https://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/`,
+        media1 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=1`,
+        media2 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=2`,
+        media3 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=3`,
+        media4 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=4`,
+        media5 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=5`,
     }
 
     const cherche = (x) => axios.get(x)
@@ -186,7 +191,64 @@ exports.sourceNodes = async ({ actions }) => {
         createNode(userNode);
     })
     console.log('****** MENUS ********')
-    console.log("==== It's not how you drive it's how you arrive...") 
+    /// END MENUS ///
+
+    /// START MEDIA ////
+
+    async function getMediaChunk(x) {
+        try {
+            const response = await axios.get(`https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=50&page=${x}`);
+            return response
+        } catch (error) {
+            if (error.response) {
+                let x = [{data: 'gardes la peche'}]
+                return x
+            }
+        }
+    }
+
+    async function getMedia(){
+        let x = 1
+        let xo = 1
+        let y = []
+        let z = await getMediaChunk(x)
+        while (z.data !== undefined){
+            y = y.concat(z.data)
+            x++
+            z = await getMediaChunk(x)
+        }
+        console.log(`number of medias object === ${y.length}`)
+        return y
+    }
+
+    let media = await getMedia()
+
+
+
+    media.map((element) => {
+        const userNode = {
+            id: `${element.id}`,
+            parent: `__SOURCE__`,
+            internal: {
+                type: `RestMedias`, 
+            },
+            source_url : element.source_url,
+            caption : element.caption.rendered,
+            title : element.title.rendered,
+        }
+
+        const contentDigest = crypto
+        .createHash(`md5`)
+        .update(JSON.stringify(userNode))
+        .digest(`hex`);
+        userNode.internal.contentDigest = contentDigest;
+
+        createNode(userNode);
+    });
+    console.log('****** MEDIAS ********')
+    /// END MEDIA ///
+
+    console.log("==== It's not how you drive it's how you arrive... Mama there goes that man ====") 
     console.log("@_@")
     return;
 }

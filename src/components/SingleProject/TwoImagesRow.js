@@ -44,3 +44,58 @@ function TwoImagesRow ({element})  {
   )
 }
 export default TwoImagesRow
+
+
+/* import React from 'react'
+import useImage from '../Hooks/useImage'
+import ProjectThumb from './ProjectThumb'
+import ProjectThumbImage from './ProjectThumbImage'
+import ThumbRow from './ThumbRow'
+
+
+function TwoImagesRow ({element})  {
+
+  let [data] = useImage();
+
+  let left, right
+
+  function pic (data, id){  
+    let x
+    data.allRestMedias.edges.forEach((image) => {
+        image.node.source_url === id
+        ? x = image.node 
+        : void(0)
+    })
+    console.log(x)
+    return x
+  }
+
+  left = pic(data, element.left.image)
+  right = pic(data, element.right.image)
+
+  return left === null || right === null ? <></>:(
+    <div className="project-content__block project-content__block--images">
+      <ProjectThumb classMod="content">
+        <ThumbRow>
+          <ProjectThumbImage
+            size={element.left.size}
+            align={'left'}
+            caption={left.caption}
+            title={left.title}
+            source_url={left.source_url}
+            row={false}
+          />
+          <ProjectThumbImage
+            size={element.right.size}
+            align={'right'}
+            caption={right.caption}
+            title={right.title}
+            source_url={right.source_url}
+            row={false}
+          />
+        </ThumbRow> 
+      </ProjectThumb> 
+    </div>
+  )
+}
+export default TwoImagesRow */

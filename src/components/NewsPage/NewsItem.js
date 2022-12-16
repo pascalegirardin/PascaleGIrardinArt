@@ -3,7 +3,8 @@ import React from "react"
 function NewsItem(props){
 
     let element = props.element
-    let url = element.link.replace('http://admin.pascalegirardin.art/', "/")
+    let url = element.link.replace('https://admin.pascalegirardin.art/', "/")
+
     
     return (
         <div className="news__item">

@@ -10,7 +10,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `http://admin.pascalegirardin.art/wp/graphql`,
+          `https://admin.pascalegirardin.art/wp/graphql`,
       },
     },
     `gatsby-transformer-sharp`,
