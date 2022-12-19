@@ -13,11 +13,6 @@ exports.sourceNodes = async ({ actions }) => {
         pages : `https://admin.pascalegirardin.art/wp-json/wp/v2/pages` ,
         categories : `https://admin.pascalegirardin.art/wp-json/wp/v2/categories` ,
         menus : `https://admin.pascalegirardin.art/wp-json/wp-api-menus/v2/menus/`,
-        media1 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=1`,
-        media2 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=2`,
-        media3 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=3`,
-        media4 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=4`,
-        media5 : `https://admin.pascalegirardin.art/wp-json/wp/v2/media?per_page=100&page=5`,
     }
 
     const cherche = (x) => axios.get(x)
@@ -206,7 +201,6 @@ exports.sourceNodes = async ({ actions }) => {
             }
         }
     }
-
     async function getMedia(){
         let x = 1
         let xo = 1
@@ -220,11 +214,7 @@ exports.sourceNodes = async ({ actions }) => {
         console.log(`number of medias object === ${y.length}`)
         return y
     }
-
     let media = await getMedia()
-
-
-
     media.map((element) => {
         const userNode = {
             id: `${element.id}`,
@@ -248,7 +238,7 @@ exports.sourceNodes = async ({ actions }) => {
     console.log('****** MEDIAS ********')
     /// END MEDIA ///
 
-    console.log("==== It's not how you drive it's how you arrive... Mama there goes that man ====") 
+    console.log("==== it's not how you drive it's how you arrive ====") 
     console.log("@_@")
     return;
 }

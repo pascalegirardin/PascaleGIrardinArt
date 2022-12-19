@@ -9,7 +9,7 @@ import ProjectThumbImage from "../components/SingleProject/ProjectThumbImage";
 function ProjectTemplate ({pageContext, location}){                                         //console.log(pageContext)
     const [ wordpressPage, setWordpressPage] = useState(null)
     const [featured_media , setFeatured_media] = useState(null)
-
+    
     function fetchPage(){
         fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/projects/${pageContext.id}`)
         .then((response) => response.json())
@@ -26,8 +26,6 @@ function ProjectTemplate ({pageContext, location}){                             
             fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/media/${wordpressPage.featured_media}`)
             .then((response) => response.json())
             .then(data => {
-                console.log('--------------')
-                console.log(data)
                 setFeatured_media(data) 
             })
         }

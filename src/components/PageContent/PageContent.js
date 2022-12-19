@@ -5,7 +5,7 @@ import TwoimagesRow from '../SingleProject/TwoImagesRow'
 import ContentVideo from '../SingleProject/ContentVideo'
 import ContentSlider from '../SingleProject/ContentSlider'
 
-function PageContent ({element , wordpressPage}) {
+function PageContent ({element , wordpressPage, pageContext}) {
 
     if (element.acf_fc_layout === 'text'){
         return(
@@ -15,11 +15,10 @@ function PageContent ({element , wordpressPage}) {
         )
     }
     else if(element.acf_fc_layout === 'one_image_row'){
-        return <OneImageRow element={element} wordpressPage={wordpressPage}/>
+        return <OneImageRow element={element} pageContext={pageContext}/>
     } 
     else if (element.acf_fc_layout === 'two_images_row') {
-        console.log(element)
-        return <TwoimagesRow element={element} />
+        return <TwoimagesRow element={element} pageContext={pageContext} />
     }
     else if (element.acf_fc_layout === 'video') {
             return <ContentVideo vimeoUrl={element.vimeo_url} />

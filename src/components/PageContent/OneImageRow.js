@@ -2,7 +2,7 @@ import React from "react";
 import classnames from 'classnames'
 import useFetch from "../Hooks/useFetch";
 
-function OneImageRow ({ element }) {
+function OneImageRow ({ element, pageContext }) {
 
   const searchThis = (str) => {
     let x = str.substring(str.lastIndexOf("/") + 1);

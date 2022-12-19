@@ -62,6 +62,7 @@ function PageTemplate ({pageContext, location}){
                       element={element} 
                       wordpressPage={wordpressPage} 
                       key={ (index + element.acf_fc_layout).toString() } 
+                      pageContext={pageContext}
                     />
                   ): null
               })
