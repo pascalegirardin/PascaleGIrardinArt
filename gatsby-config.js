@@ -11,7 +11,6 @@ module.exports = {
           `https://admin.pascalegirardin.art/wp/graphql`,
       },
     },
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
