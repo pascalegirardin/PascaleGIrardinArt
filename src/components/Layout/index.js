@@ -1,5 +1,5 @@
 import React from "react";
-import Seo from "./seo.js"
+import Head from "./Head.js"
 import Header from "./Header"
 import Footer from './Footer';
 
@@ -7,7 +7,7 @@ const Layout = ({ title, children, pageContext, description }) => {
 
   return (
     <>
-      <Seo title={title} description={description} />
+      <Head title={title} description={description} />
       <Header pageContext={pageContext}/>
         <main>
           {children}
