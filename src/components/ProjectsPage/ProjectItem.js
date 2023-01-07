@@ -4,8 +4,12 @@ import {withIntl} from '../../i18n'
 function ProjectItem({element, pageContext}){
 
     let url = element.link.split('art/')[1]
+    console.log(element.type)
+    console.log(url)
 
-    let realUrl = url.split('project/')[0] + url.split('project/')[1]
+    let realUrl = element.type === 'exposition'
+        ? url.split('exposition/')[0] + url.split('exposition/')[1]
+        : url.split('project/')[0] + url.split('project/')[1]
 
     return (
         <div className="projects__item" >
