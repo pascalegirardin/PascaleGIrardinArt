@@ -78,6 +78,7 @@ exports.onCreatePage =  async ({ page, actions }) => {
   let posts = await cherche('posts')
   let projects = await cherche('projects?per_page=100&page=1')
   let medias = await getMedia()
+  let expositions = await cherche('expositions')
 
   languages.forEach(({ locale, slug, isDefault }) => {
       const path = isDefault ? `${page.path}` : `/${slug}${page.path}`
@@ -92,6 +93,7 @@ exports.onCreatePage =  async ({ page, actions }) => {
             originalPath: page.path,
             posts:posts,
             projects:projects,
+            expositions:expositions,
             medias:medias,
           },
         }
@@ -120,13 +122,16 @@ exports.createPages =  async ({ graphql, actions }) => {
 
   let pages = await cherche('pages')
   let projects = await cherche('projects?per_page=100&page=1')
+  let expositions = await cherche('expositions')
   let posts = await cherche('posts')
 
   let pageTemplate = path.resolve(`./src/templates/PageTemplate.js`)
   let projectTemplate = path.resolve(`./src/templates/ProjectTemplate.js`)
+  let expositionTemplate = path.resolve(`./src/templates/ExpositionTemplate.js`)
   let postTemplate = path.resolve(`./src/templates/NewsTemplate.js`)
 
   pages.map((node) => { Create(node, pageTemplate) })
   projects.map((node) => { Create(node, projectTemplate) })
+  expositions.map((node) => { console.log(node); Create(node, expositionTemplate) })
   posts.map((node) => { Create(node, postTemplate) })
 }

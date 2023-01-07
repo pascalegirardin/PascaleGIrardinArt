@@ -11,17 +11,21 @@ function IndexPage ({pageContext}) {
 
     const posts = pageContext.posts
     const projects = pageContext.projects
+    const expositions = pageContext.expositions
+
+    console.log(expositions)
 
     const SortChronogically = () => {
-        let x = projects.concat(posts)                                                  // x is all the posts and all of the projects
-        x.sort((a, b) => {
+        let x = projects.concat(posts)
+        let xx = x.concat(expositions)                                                  // x is all the posts and all of the projects
+        xx.sort((a, b) => {
             const dateA = new Date(a.date)
             const dateB = new Date(b.date)
             return dateA - dateB
         })
         .reverse()
         let y = []                                                                      // y is only the ones in the current lang
-        x.forEach(element => {
+        xx.forEach(element => {
             element.polylang_current_lang.includes(pageContext.locale) 
             ? y.push(element)
             :void(0)

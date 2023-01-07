@@ -4,7 +4,7 @@ import NewsElement from "./NewsElement"
 
 export const Row = ({element, pageContext}) => { 
 
-    return element.type === "project" 
+    return element.type === "project" || element.type === "exposition"
     ? <ProjectElement 
         element={element}
         key={element.date}
