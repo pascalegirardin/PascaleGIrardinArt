@@ -13,7 +13,7 @@ function IndexPage ({pageContext}) {
     const projects = pageContext.projects
     const expositions = pageContext.expositions
 
-    console.log(expositions)
+    //console.log(expositions)
 
     const SortChronogically = () => {
         let x = projects.concat(posts)

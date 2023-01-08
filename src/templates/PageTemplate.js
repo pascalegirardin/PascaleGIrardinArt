@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { withIntl } from '../i18n'
-import Link from 'gatsby-link'
+import { Link } from "gatsby"
 import PageContent from "../components/PageContent/PageContent"
 import Layout from "../components/Layout"
 import useFetch from "../components/Hooks/useFetch"

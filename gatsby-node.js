@@ -132,6 +132,6 @@ exports.createPages =  async ({ graphql, actions }) => {
 
   pages.map((node) => { Create(node, pageTemplate) })
   projects.map((node) => { Create(node, projectTemplate) })
-  expositions.map((node) => { console.log(node); Create(node, expositionTemplate) })
+  expositions.map((node) => { Create(node, expositionTemplate) })
   posts.map((node) => { Create(node, postTemplate) })
 }
