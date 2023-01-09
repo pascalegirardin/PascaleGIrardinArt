@@ -21,6 +21,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: './static/favicon-32x32.png',
+        lang: `fr`,
       },
     },
   ],
