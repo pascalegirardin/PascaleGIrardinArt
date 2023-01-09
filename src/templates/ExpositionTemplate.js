@@ -6,12 +6,12 @@ import ProjectThumb from "../components/SingleProject/ProjectThumb";
 import ProjectHeader from "../components/SingleProject/ProjectHeader";
 import ProjectThumbImage from "../components/SingleProject/ProjectThumbImage";
 
-function ProjectTemplate ({pageContext, location}){                                         //console.log(pageContext)
+function ExpositionTemplate ({pageContext, location}){                                         //console.log(pageContext)
     const [ wordpressPage, setWordpressPage] = useState(null)
     const [featured_media , setFeatured_media] = useState(null)
     
     function fetchPage(){
-        fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/projects/${pageContext.id}`)
+        fetch(`https://admin.pascalegirardin.art/wp-json/wp/v2/expositions/${pageContext.id}`)
         .then((response) => response.json())
         .then(data => {                                                                     //console.log(data)
             setWordpressPage(data); 
@@ -78,4 +78,4 @@ function ProjectTemplate ({pageContext, location}){                             
         </Layout>
     )
 }
-export default withIntl(ProjectTemplate)
+export default withIntl(ExpositionTemplate)

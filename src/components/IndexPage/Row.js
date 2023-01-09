@@ -2,32 +2,17 @@ import React from "react"
 import ProjectElement from "./ProjectElement"
 import NewsElement from "./NewsElement"
 
-export const Row = ({element}) => { 
+export const Row = ({element, pageContext}) => { 
 
-    return element.type === "project" 
+    return element.type === "project" || element.type === "exposition"
     ? <ProjectElement 
         element={element}
         key={element.date}
+        pageContext={pageContext}
         /> 
     : <NewsElement
         element={element}
         key={element.date}
+        pageContext={pageContext}
         /> 
 }
-
-/* import React from "react"
-import ProjectElement from "./ProjectElement"
-import NewsElement from "./NewsElement"
-
-export const Row = ({element}) => { 
-
-    return element.node.type === "project" 
-    ? <ProjectElement 
-        element={element}
-        key={element.date}
-        /> 
-    : <NewsElement
-        element={element}
-        key={element.date}
-        /> 
-} */

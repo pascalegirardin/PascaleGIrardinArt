@@ -50,7 +50,6 @@ function ProjectsPage ({pageContext, location}) {
                 ? x.push(element)
                 :void(0)
             });
-            //console.log(x)
             setProjects(x) 
         } )
         .catch((error) => console.log(error))
@@ -104,7 +103,6 @@ function ProjectsPage ({pageContext, location}) {
                 ? x.push(element) 
                 : void(0)
             })
-            console.log(x)
             return x.length < 1 ? setProjectsToShow(emptyProject) : setProjectsToShow(x) ;
         }
     }
