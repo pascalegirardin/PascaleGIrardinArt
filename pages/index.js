@@ -1,4 +1,4 @@
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { cherche, getMedia } from '../components/lib/lib';
 import PostsToShow from '../components/IndexPage/PostToShow';
