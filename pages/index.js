@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 import { useEffect, useState } from 'react';
 import { cherche, getMedia } from '../components/lib/lib';
 import PostsToShow from '../components/IndexPage/PostToShow';
@@ -13,8 +13,11 @@ function IndexPage ({posts, projects, expositions, media, menus}){
   let [lastChunk, setLastChunk] = useState(null)
 
   const SortChronogically = () => {
+    let xx
     let x = projects.concat(posts)
-    let xx = x.concat(expositions)                                                  // x is all the posts and all of the projects
+    expositions === undefined || expositions.length == 0
+    ?  xx = x                                                 // x is all the posts and all of the projects
+    :  xx = x.concat(expositions)                              // x is all the posts and all of the projects and all of the expositions
     xx.sort((a, b) => {
         const dateA = new Date(a.date)
         const dateB = new Date(b.date)

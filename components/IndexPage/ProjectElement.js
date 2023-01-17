@@ -14,7 +14,7 @@ function ProjectElement ({element, media}) {                                   /
     : `projects/${element.slug}`
     console.log(uri)
 
-    return image === null ? <></> :(
+    return image === null || image === undefined ? <></> :(
         <>
             <div className="project-thumb__row">
                 <div className={classNames(
